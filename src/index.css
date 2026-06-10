@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  /* Customized palette matched to design specifications */
+  --color-brand-bg: #05070a;
+  --color-brand-panel: #0a0d14;
+  --color-brand-card: #111827;
+  --color-brand-border: #1a1f2e;
+  --color-brand-cyan: #00f2ff;
+  --color-brand-blue: #0066ff;
+  --color-brand-green: #00ff9d;
+  --color-brand-orange: #ff8c00;
+  --color-brand-red: #ff4e00;
+  --color-brand-text: #e0e6ed;
+  --color-brand-muted: #64748b;
+  --color-brand-slate: #94a3b8;
+}
+
+/* Custom Scrollbars for a technical cockpit feel */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #05070a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1a1f2e;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00f2ff;
+}
+
+/* Base Body settings */
+body {
+  background-color: #05070a;
+  color: #e0e6ed;
+  font-family: var(--font-sans);
+}
+
+/* Grid overlay background to replicate physical CAD layouts */
+.tech-grid {
+  background-image: 
+    linear-gradient(rgba(26, 31, 46, 0.4) 1px, transparent 1px), 
+    linear-gradient(90deg, rgba(26, 31, 46, 0.4) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.tech-grid-dense {
+  background-image: 
+    linear-gradient(rgba(0, 242, 255, 0.04) 1px, transparent 1px), 
+    linear-gradient(90deg, rgba(0, 242, 255, 0.04) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+/* Micro-scanner effect */
+@keyframes scanning {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(100%); }
+  100% { transform: translateY(0); }
+}
+
+.scanner-line {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00f2ff, transparent);
+  width: 100%;
+  position: absolute;
+  top: 0;
+  animation: scanning 15s linear infinite;
+}
